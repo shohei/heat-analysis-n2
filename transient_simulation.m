@@ -2,8 +2,8 @@ clear; close all; clc;
 
 L = 2e-3; %m (2mm)
 x = linspace(0/L,L/L,30);
-% t = [0.01 0.02 0.05 0.10 0.20];
-t = linspace(0,2,30);
+burntime = 1.89; %[s] OpenMotorの結果より
+t = linspace(0,burntime,30);
 m = 0;
 sol = pdepe(m,@heatpde,@heatic,@heatbc,x,t);
 

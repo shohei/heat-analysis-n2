@@ -3,11 +3,11 @@ clear; close all; clc;
 L = 2e-3; %m (2mm)
 x = linspace(0/L,L/L,30);
 % t = [0.01 0.02 0.05 0.10 0.20];
-t = linspace(0,2,20);
+t = linspace(0,2,30);
 m = 0;
 sol = pdepe(m,@heatpde,@heatic,@heatbc,x,t);
 
-plot(t,sol(:,1));
+plot(t,sol(:,1)-273);
 
 title('Chamber wall temperature increase');
 xlabel('Time [sec]');
@@ -26,7 +26,7 @@ s = 0;
 end
 
 function u0 = heatic(x)
-T0 = 1;
+T0 = 300; %[K]
 u0 = T0;
 end
 
